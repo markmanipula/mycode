@@ -32,34 +32,43 @@ numberOfTries = 0
 
 while keepPlaying:
 
-    #validates if user have a non number input
+    #validates if user have a non number input for first number
+    #the continue here serves the purpose of going back to its while loop
     while invalidInput:
         try:
             playerGuessFirstNumber = int(input("Enter first number\n>"))
-            #based on the rulesm first nubmer cant start at 0
+            #based on the rules first nubmer cant start at 0
             #this will prevent the user to input 0
-            if playerGuessFirstNumber == 0:
-                print("First number can't start at 0!")
+            if playerGuessFirstNumber <= 0 or playerGuessFirstNumber > 9:
+                print("First number must be between 1 -9 inclusive")
                 continue
             break
         except:
             print("Enter a valid first number")
 
+    #validates if user have a non number input for second number
     while invalidInput:
         try:
             playerGuessSecondNumber = int(input("Enter second number\n>"))
             if playerGuessFirstNumber == playerGuessSecondNumber:
                 print("You cant have repeating numbers!")
                 continue
+            if playerGuessSecondNumber < 0 or playerGuessFirstNumber > 9:
+                print("Second number must be between 0 -9 inclusive")
+                continue
             break
         except:
             print("Enter a valid second number")
 
+    #validates if user have a non number input for third number
     while invalidInput:
         try:
             playerGuessThirdNumber = int(input("Enter third number\n>"))
             if playerGuessThirdNumber == playerGuessSecondNumber or playerGuessThirdNumber == playerGuessFirstNumber:
                 print("You cant have repeating numbers!")
+                continue
+            if playerGuessThirdNumber < 0 or playerGuessThirdNumber > 9:
+                print("Third number must be between 0 -9 inclusive")
                 continue
             invalidInput = False
             break
@@ -76,7 +85,7 @@ while keepPlaying:
         A+=1
     if A == 3:
         keepPlaying = False
-        print(f"Congratulations, you cracked the 3-digit code!\n>The numbers are {firstNumber} {secondNumber} {thirdNumber} \n>Number of tries: {numberOfTries}")    
+        print(f"Congratulations, you cracked the 3-digit code!\n>The numbers are {firstNumber}-{secondNumber}-{thirdNumber} \n>Number of tries: {numberOfTries}")    
         break
 
     if(firstNumber == playerGuessSecondNumber or firstNumber == playerGuessThirdNumber):
@@ -89,35 +98,18 @@ while keepPlaying:
     if(A == 0 and B == 0):
         print(X)
     else:
-        print(f"Your input is {playerGuessFirstNumber}{playerGuessSecondNumber}{playerGuessThirdNumber} --> {A}-A {B}-B")
+        print(f"Your input is {playerGuessFirstNumber}-{playerGuessSecondNumber}-{playerGuessThirdNumber} ---> {A}-A {B}-B")
 
     #reset the value of a and b to keep the hints accurate
     invalidInput = True
     A = 0
     B = 0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    #asks the user if they want to give up after 5 tries
+    if numberOfTries >= 5:
+        giveUp = input("Would you like to give up? Enter y to give up OR press any key and ENTER to continue\n>").lower()
+        if giveUp == "y":
+            print(f"The 3-digit code is: {firstNumber}-{secondNumber}-{thirdNumber}")
+            break
 
 
