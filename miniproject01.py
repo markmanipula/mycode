@@ -24,11 +24,11 @@ while thirdNumber == firstNumber or thirdNumber == secondNumber:
 
 #testing to see if there are repeats
 #testing output as well for easy coding
-print(f"{firstNumber} {secondNumber} {thirdNumber}")
+#print(f"{firstNumber} {secondNumber} {thirdNumber}")
 
 keepPlaying = True
-A = 0;
-B = 0;
+A = 0
+B = 0
 X = "No hit!"
 invalidInput = True
 numberOfTries = 0
