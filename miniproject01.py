@@ -6,6 +6,8 @@
 
 import random
 
+print("Guess the 3-digit code to defeat the computer! If the guessed number is in the correct position its an A. If the guessed number is in the code but in the wrong position, its a B. Goal is to get 3 A's!")
+
 #first number cant be 0. just how the rules are
 firstNumber = random.randint(1,9)
 
@@ -98,6 +100,7 @@ while keepPlaying:
     if(A == 0 and B == 0):
         print(X)
     else:
+        #this is the hint given
         print(f"Your input is {playerGuessFirstNumber}-{playerGuessSecondNumber}-{playerGuessThirdNumber} ---> {A}-A {B}-B")
 
     #reset the value of a and b to keep the hints accurate
